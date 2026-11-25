@@ -1,0 +1,473 @@
+{
+  "version": "1.0.0",
+  "generatedAt": "2026-11-24",
+  "basePath": "TWISTED_HIGHWAY_ASSETS",
+  "sheets": {
+    "player_cars": {
+      "file": "01_PLAYER_CARS/player_cars_spritesheet.png",
+      "size": [1280, 1024],
+      "type": "rects",
+      "blend": "source-over",
+      "facing": "up",
+      "order": ["red_reaper", "night_thorn", "sand_dog", "armored_truck", "neon_phantom"],
+      "frames": {
+        "red_reaper_idle":       { "x": 56,   "y": 21,  "w": 144, "h": 277 },
+        "red_reaper_fire":       { "x": 63,   "y": 321, "w": 131, "h": 258 },
+        "red_reaper_damaged":    { "x": 65,   "y": 594, "w": 142, "h": 218 },
+        "red_reaper_destroyed":  { "x": 65,   "y": 812, "w": 142, "h": 203 },
+
+        "night_thorn_idle":      { "x": 309,  "y": 42,  "w": 150, "h": 251 },
+        "night_thorn_fire":      { "x": 311,  "y": 348, "w": 146, "h": 234 },
+        "night_thorn_damaged":   { "x": 317,  "y": 617, "w": 134, "h": 195 },
+        "night_thorn_destroyed": { "x": 308,  "y": 831, "w": 155, "h": 184 },
+
+        "sand_dog_idle":         { "x": 565,  "y": 50,  "w": 150, "h": 233 },
+        "sand_dog_fire":         { "x": 567,  "y": 311, "w": 147, "h": 262 },
+        "sand_dog_damaged":      { "x": 569,  "y": 599, "w": 153, "h": 205 },
+        "sand_dog_destroyed":    { "x": 560,  "y": 820, "w": 156, "h": 189 },
+
+        "armored_truck_idle":      { "x": 816,  "y": 24,  "w": 159, "h": 272 },
+        "armored_truck_fire":      { "x": 817,  "y": 334, "w": 158, "h": 250 },
+        "armored_truck_damaged":   { "x": 826,  "y": 601, "w": 168, "h": 211 },
+        "armored_truck_destroyed": { "x": 819,  "y": 824, "w": 158, "h": 191 },
+
+        "neon_phantom_idle":      { "x": 1087, "y": 35,  "w": 128, "h": 274 },
+        "neon_phantom_fire":      { "x": 1091, "y": 337, "w": 150, "h": 267 },
+        "neon_phantom_damaged":   { "x": 1091, "y": 604, "w": 150, "h": 200 },
+        "neon_phantom_destroyed": { "x": 1078, "y": 823, "w": 147, "h": 183 }
+      }
+    },
+
+    "player_weapons": {
+      "file": "02_PLAYER_WEAPONS/player_weapons_spritesheet.png",
+      "size": [1280, 1024],
+      "type": "grid",
+      "cols": 5,
+      "rows": 4,
+      "frameW": 256,
+      "frameH": 256,
+      "blend": "source-over",
+      "colNames": ["red_reaper", "night_thorn", "sand_dog", "armored_truck", "neon_phantom"],
+      "rowNames": ["closed", "opening", "deployed", "fire"]
+    },
+
+    "enemies": {
+      "file": "03_ENEMIES/enemy_cars_spritesheet.png",
+      "size": [1280, 1024],
+      "type": "grid",
+      "cols": 5,
+      "rows": 4,
+      "frameW": 256,
+      "frameH": 256,
+      "blend": "source-over",
+      "facing": "down",
+      "colNames": ["buggy_green", "muscle_purple", "van_striped", "pickup_cyan", "flame_red"],
+      "rowNames": ["idle", "boost", "fire", "damaged"]
+    },
+
+    "mini_bosses": {
+      "file": "04_BOSSES/bosses_spritesheet.png",
+      "size": [1152, 1536],
+      "type": "grid",
+      "cols": 3,
+      "rows": 4,
+      "frameW": 384,
+      "frameH": 384,
+      "blend": "source-over",
+      "facing": "down",
+      "colNames": ["war_rig", "saw_dozer", "rail_juggernaut"],
+      "rowNames": ["idle", "boost", "fire", "damaged"]
+    },
+
+    "mutant_bosses": {
+      "file": "05_MUTANT_BOSSES/mutant_bosses_spritesheet.png",
+      "size": [1536, 1152],
+      "type": "grid",
+      "cols": 4,
+      "rows": 3,
+      "frameW": 384,
+      "frameH": 384,
+      "blend": "source-over",
+      "facing": "down",
+      "colNames": ["boss_night_thorn", "boss_sand_dog", "boss_armored_truck", "boss_neon_phantom"],
+      "rowNames": ["idle", "attack", "damaged_wreck"]
+    },
+
+    "roads": {
+      "type": "single_map",
+      "size": [768, 1280],
+      "files": {
+        "starter":     "06_ROADS/main_road_tile.png",
+        "desert":      "06_ROADS/road_desert_tile.png",
+        "industrial":  "06_ROADS/road_industrial_tile.png",
+        "ruined_city": "06_ROADS/road_ruined_city_tile.png",
+        "winter":      "06_ROADS/road_winter_tile.png",
+        "hell":        "06_ROADS/road_hell_tile.png"
+      }
+    },
+
+    "destructible_obstacles": {
+      "type": "biome_grid",
+      "size": [1280, 768],
+      "cols": 5,
+      "rows": 3,
+      "frameW": 256,
+      "frameH": 256,
+      "colNames": ["concrete_block", "steel_beams", "oil_puddle", "spike_strip", "fuel_barrels"],
+      "rowNames": ["intact", "damaged", "destroyed"],
+      "files": {
+        "starter":     "07_DESTRUCTIBLE_OBSTACLES/obstacles_group1_spritesheet.png",
+        "desert":      "07_DESTRUCTIBLE_OBSTACLES/obstacles_desert_spritesheet.png",
+        "industrial":  "07_DESTRUCTIBLE_OBSTACLES/obstacles_industrial_spritesheet.png",
+        "ruined_city": "07_DESTRUCTIBLE_OBSTACLES/obstacles_ruined_city_spritesheet.png",
+        "winter":      "07_DESTRUCTIBLE_OBSTACLES/obstacles_winter_spritesheet.png",
+        "hell":        "07_DESTRUCTIBLE_OBSTACLES/obstacles_hell_spritesheet.png"
+      }
+    },
+
+    "danger_obstacles": {
+      "type": "biome_grid",
+      "size": [1280, 512],
+      "cols": 5,
+      "rows": 2,
+      "frameW": 256,
+      "frameH": 256,
+      "colNames": ["crater", "traffic_cones", "steel_barrier", "landmines", "cargo_container"],
+      "rowNames": ["normal", "warning_red"],
+      "files": {
+        "starter":     "08_DANGER_OBSTACLES/obstacles_group2_main_spritesheet.png",
+        "desert":      "08_DANGER_OBSTACLES/obstacles_group2_desert_spritesheet.png",
+        "industrial":  "08_DANGER_OBSTACLES/obstacles_group2_industrial_spritesheet.png",
+        "ruined_city": "08_DANGER_OBSTACLES/obstacles_group2_ruined_city_spritesheet.png",
+        "winter":      "08_DANGER_OBSTACLES/obstacles_group2_winter_spritesheet.png",
+        "hell":        "08_DANGER_OBSTACLES/obstacles_group2_hell_spritesheet.png"
+      }
+    },
+
+    "weapon_crates": {
+      "file": "09_WEAPON_CRATES/weapon_crates_spritesheet.png",
+      "size": [1024, 512],
+      "type": "grid",
+      "cols": 4,
+      "rows": 2,
+      "frameW": 256,
+      "frameH": 256,
+      "colNames": ["flamethrower", "rocket_launcher", "machinegun", "laser"],
+      "rowNames": ["normal", "glow"]
+    },
+
+    "pickups": {
+      "file": "10_PICKUPS/pickups_spritesheet.png",
+      "size": [1280, 512],
+      "type": "grid",
+      "cols": 5,
+      "rows": 2,
+      "frameW": 256,
+      "frameH": 256,
+      "colNames": ["repair", "shield", "special_ammo", "gold_coin", "last_hope"],
+      "rowNames": ["normal", "glow"]
+    },
+
+    "projectiles": {
+      "file": "11_PROJECTILES/projectiles_spritesheet.png",
+      "size": [2048, 512],
+      "type": "grid",
+      "cols": 8,
+      "rows": 1,
+      "frameW": 256,
+      "frameH": 256,
+      "note": "Use row 0 only; row 1 has broken white outlines",
+      "colNames": [
+        "player_rifle", "player_mg", "player_fire", "player_rocket", "player_laser",
+        "enemy_rocket", "enemy_plasma", "enemy_heavy_bomb"
+      ]
+    },
+
+    "boss_ult_beams": {
+      "file": "12_BOSS_ULTIMATES/mutant_boss_ults_spritesheet.png",
+      "size": [1024, 1536],
+      "type": "grid",
+      "cols": 4,
+      "rows": 3,
+      "frameW": 256,
+      "frameH": 512,
+      "blend": "lighter",
+      "colNames": ["boss_night_thorn_red", "boss_sand_dog_green", "boss_armored_truck_fire", "boss_neon_phantom_cyan"],
+      "rowNames": ["telegraph", "beam_1", "beam_2"]
+    },
+
+    "boss_ult_hits": {
+      "file": "12_BOSS_ULTIMATES/mutant_ult_hits_spritesheet.png",
+      "size": [1024, 512],
+      "type": "grid",
+      "cols": 4,
+      "rows": 2,
+      "frameW": 256,
+      "frameH": 256,
+      "blend": "lighter",
+      "colNames": ["boss_night_thorn_red", "boss_sand_dog_green", "boss_armored_truck_fire", "boss_neon_phantom_cyan"],
+      "rowNames": ["hit_1", "hit_2"]
+    },
+
+    "explosions": {
+      "file": "13_EXPLOSIONS/vfx_explosions_spritesheet.png",
+      "size": [1280, 1024],
+      "type": "grid",
+      "cols": 5,
+      "rows": 4,
+      "frameW": 256,
+      "frameH": 256,
+      "blend": "lighter",
+      "sequences": {
+        "exp_small":      [[0, 0], [0, 1]],
+        "exp_medium":     [[1, 0], [1, 1]],
+        "exp_ring":       [[2, 0], [2, 1]],
+        "exp_bright":     [[3, 0], [3, 1]],
+        "exp_shockwave":  [[4, 0], [4, 1]],
+        "vfx_emp":        [[0, 2], [0, 3]],
+        "vfx_sparks":     [[1, 2], [1, 3]],
+        "vfx_smoke":      { "frames": [[2, 2], [2, 3]], "blend": "source-over" },
+        "vfx_fire_burst": [[3, 2], [3, 3]],
+        "exp_mega":       [[4, 2], [4, 3]]
+      }
+    },
+
+    "defense_effects": {
+      "file": "14_DEFENSE_EFFECTS/defense_effects_spritesheet.png",
+      "size": [1536, 1024],
+      "type": "grid",
+      "cols": 6,
+      "rows": 4,
+      "frameW": 256,
+      "frameH": 256,
+      "blend": "lighter",
+      "colNames": ["shield_idle", "shield_hit", "heal_vfx", "shield_activate", "shield_break", "last_hope_invuln"]
+    },
+
+    "hud_elements": {
+      "file": "15_HUD/hud_elements_spritesheet.png",
+      "size": [1536, 1024],
+      "type": "rects",
+      "frames": {
+        "bar_hp_empty":      { "x": 28,   "y": 23,  "w": 704,  "h": 74 },
+        "bar_hp_full":       { "x": 804,  "y": 23,  "w": 704,  "h": 74 },
+        "bar_shield_empty":  { "x": 28,   "y": 113, "w": 704,  "h": 74 },
+        "bar_shield_full":   { "x": 804,  "y": 113, "w": 704,  "h": 74 },
+        "bar_ammo_empty":    { "x": 28,   "y": 203, "w": 704,  "h": 74 },
+        "bar_ammo_full":     { "x": 804,  "y": 203, "w": 704,  "h": 74 },
+        "bar_boss_hp":       { "x": 28,   "y": 313, "w": 1154, "h": 94 },
+        "icon_warning":      { "x": 1297, "y": 305, "w": 127,  "h": 105 },
+        "slot_crosshair":    { "x": 28,   "y": 448, "w": 184,  "h": 184 },
+        "counter_ammo":      { "x": 258,  "y": 448, "w": 604,  "h": 82 },
+        "counter_kills":     { "x": 903,  "y": 448, "w": 604,  "h": 82 },
+        "counter_score":     { "x": 258,  "y": 551, "w": 604,  "h": 81 },
+        "counter_coins":     { "x": 903,  "y": 551, "w": 604,  "h": 81 },
+        "btn_pause":         { "x": 78,   "y": 708, "w": 224,  "h": 224 },
+        "btn_settings":      { "x": 458,  "y": 708, "w": 224,  "h": 224 },
+        "btn_sound":         { "x": 838,  "y": 708, "w": 224,  "h": 224 },
+        "btn_boost_chevrons":{ "x": 1218, "y": 708, "w": 224,  "h": 224 }
+      }
+    },
+
+    "hud_blank_bars": {
+      "file": "15_HUD/hud_blank_bars.png",
+      "size": [2752, 1536],
+      "type": "rects",
+      "frames": {
+        "currency_bar_blank": { "x": 146, "y": 263, "w": 2460, "h": 335 },
+        "upgrade_row_blank":  { "x": 145, "y": 763, "w": 2461, "h": 468 }
+      }
+    },
+
+    "touch_controls": {
+      "file": "16_CONTROLS/touch_controls_spritesheet.png",
+      "size": [1536, 1024],
+      "type": "rects",
+      "frames": {
+        "wheel_idle":          { "x": 68,   "y": 56,  "w": 376, "h": 376 },
+        "wheel_active":        { "x": 555,  "y": 31,  "w": 426, "h": 426 },
+        "wheel_turn_alt":      { "x": 1067, "y": 27,  "w": 426, "h": 430 },
+        "btn_rifle_normal":    { "x": 151,  "y": 519, "w": 210, "h": 210 },
+        "btn_special_normal":  { "x": 407,  "y": 519, "w": 210, "h": 210 },
+        "btn_temp_normal":     { "x": 663,  "y": 519, "w": 210, "h": 210 },
+        "btn_shield_unused":   { "x": 919,  "y": 519, "w": 210, "h": 210 },
+        "btn_pause_normal":    { "x": 1175, "y": 519, "w": 210, "h": 210 },
+        "btn_rifle_pressed":   { "x": 146,  "y": 776, "w": 221, "h": 221 },
+        "btn_special_pressed": { "x": 402,  "y": 776, "w": 221, "h": 221 },
+        "btn_temp_pressed":    { "x": 658,  "y": 776, "w": 221, "h": 221 },
+        "btn_shield_unused_p": { "x": 914,  "y": 776, "w": 221, "h": 221 },
+        "btn_pause_pressed":   { "x": 1170, "y": 776, "w": 221, "h": 221 }
+      }
+    },
+
+    "gameover_damage_decals": {
+      "file": "17_GAME_OVER/gameover_damage_decals.png",
+      "size": [1024, 512],
+      "type": "grid",
+      "cols": 4,
+      "rows": 2,
+      "frameW": 256,
+      "frameH": 256
+    },
+
+    "menu_buttons": {
+      "file": "18_MAIN_MENU/menu_buttons_spritesheet.png",
+      "size": [1408, 1728],
+      "type": "grid",
+      "cols": 2,
+      "rows": 12,
+      "frameW": 704,
+      "frameH": 144,
+      "colNames": ["normal", "pressed"],
+      "rowNames": [
+        "arcade", "campaign", "boss", "hell", "garage", "settings",
+        "leaderboard", "back", "confirm", "buy", "select", "start_game"
+      ]
+    },
+
+    "extra_buttons": {
+      "file": "18_MAIN_MENU/extra_buttons_spritesheet.png",
+      "size": [2400, 1792],
+      "type": "rects",
+      "frames": {
+        "continue_normal":  { "x": 43,   "y": 53,   "w": 1117, "h": 337 },
+        "continue_pressed": { "x": 1240, "y": 51,   "w": 1118, "h": 341 },
+        "exchange_normal":  { "x": 43,   "y": 503,  "w": 1116, "h": 337 },
+        "exchange_pressed": { "x": 1240, "y": 502,  "w": 1118, "h": 339 },
+        "reset_normal":     { "x": 43,   "y": 953,  "w": 1117, "h": 337 },
+        "reset_pressed":    { "x": 1240, "y": 952,  "w": 1118, "h": 338 },
+        "revive_normal":    { "x": 43,   "y": 1403, "w": 1116, "h": 336 },
+        "revive_pressed":   { "x": 1240, "y": 1402, "w": 1118, "h": 338 }
+      }
+    },
+
+    "garage_cars": {
+      "file": "19_GARAGE/garage_cars_spritesheet.png",
+      "size": [1920, 768],
+      "type": "grid",
+      "cols": 5,
+      "rows": 2,
+      "frameW": 384,
+      "frameH": 384,
+      "colNames": ["red_reaper", "night_thorn", "sand_dog", "armored_truck", "neon_phantom"],
+      "rowNames": ["normal", "selected_glow"]
+    },
+
+    "garage_arrows": {
+      "file": "19_GARAGE/garage_arrows_spritesheet.png",
+      "size": [512, 512],
+      "type": "grid",
+      "cols": 2,
+      "rows": 1,
+      "frameW": 256,
+      "frameH": 256,
+      "note": "Use row 0 only; row 1 has white border defect",
+      "colNames": ["left", "right"]
+    },
+
+    "garage_ui": {
+      "file": "19_GARAGE/garage_ui_spritesheet.png",
+      "size": [1536, 1536],
+      "type": "rects",
+      "frames": {
+        "panel_stats_legacy":    { "x": 27,   "y": 27,   "w": 706, "h": 356 },
+        "bar_coins_legacy":      { "x": 777,  "y": 27,   "w": 732, "h": 116 },
+        "icon_gold_coin_ui":     { "x": 804,  "y": 186,  "w": 173, "h": 173 },
+        "icon_car_locked_bars":  { "x": 1048, "y": 177,  "w": 191, "h": 191 },
+        "icon_boss_unlock_req":  { "x": 1301, "y": 177,  "w": 191, "h": 191 },
+        "modal_confirm":         { "x": 27,   "y": 417,  "w": 466, "h": 416 },
+        "modal_no_coins_legacy": { "x": 527,  "y": 417,  "w": 466, "h": 416 },
+        "modal_purchase_ok":     { "x": 1027, "y": 417,  "w": 482, "h": 416 },
+        "panel_upgrade_legacy":  { "x": 27,   "y": 867,  "w": 966, "h": 642 },
+        "upgrade_bar_0_5":       { "x": 1027, "y": 887,  "w": 482, "h": 106 },
+        "upgrade_bar_3_5":       { "x": 1027, "y": 1017, "w": 482, "h": 106 },
+        "upgrade_bar_5_5":       { "x": 1027, "y": 1147, "w": 482, "h": 106 },
+        "upgrade_cell_empty":    { "x": 1067, "y": 1297, "w": 181, "h": 176 },
+        "upgrade_cell_filled":   { "x": 1287, "y": 1297, "w": 181, "h": 176 }
+      }
+    },
+
+    "garage_panels_clean": {
+      "file": "19_GARAGE/garage_panels_clean.png",
+      "size": [2048, 2048],
+      "type": "rects",
+      "frames": {
+        "panel_stats_clean":        { "x": 40,   "y": 39,   "w": 934,  "h": 469 },
+        "modal_insufficient_funds": { "x": 1182, "y": 40,   "w": 828,  "h": 729 },
+        "panel_upgrade_clean":      { "x": 39,   "y": 1160, "w": 1283, "h": 851 }
+      }
+    },
+
+    "game_logo_anim": {
+      "file": "21_LOGO/game_logo_anim_spritesheet.png",
+      "size": [1280, 2560],
+      "type": "grid",
+      "cols": 1,
+      "rows": 5,
+      "frameW": 1280,
+      "frameH": 512
+    },
+
+    "stat_icons": {
+      "file": "22_UI_EXTRA/stat_icons_spritesheet.png",
+      "size": [1024, 768],
+      "type": "grid",
+      "cols": 4,
+      "rows": 3,
+      "frameW": 256,
+      "frameH": 256,
+      "frames": [
+        "speed", "upgrade_tier", "handling", "armor",
+        "shield", "rifle", "damage", "fire_rate",
+        "ammo", "special_weapon", "hp", "stability_reload"
+      ]
+    },
+
+    "btn_retry_round": {
+      "file": "22_UI_EXTRA/btn_retry_round_spritesheet.png",
+      "size": [2912, 1440],
+      "type": "rects",
+      "frames": {
+        "normal":  { "x": 40,   "y": 26, "w": 1374, "h": 1381 },
+        "pressed": { "x": 1496, "y": 26, "w": 1374, "h": 1381 }
+      }
+    }
+  },
+
+  "singles": {
+    "main_menu_bg":           { "file": "18_MAIN_MENU/main_menu_bg.png", "size": [768, 1376] },
+    "garage_bg":              { "file": "19_GARAGE/garage_bg.png", "size": [768, 1376] },
+    "map_preview_desert":     { "file": "20_MAP_SELECTION/map_preview_desert.png", "size": [896, 1200] },
+    "map_preview_industrial": { "file": "20_MAP_SELECTION/map_preview_industrial.png", "size": [896, 1200] },
+    "map_preview_ruined_city":{ "file": "20_MAP_SELECTION/map_preview_ruined_city.png", "size": [896, 1200] },
+    "map_preview_winter":     { "file": "20_MAP_SELECTION/map_preview_winter.png", "size": [896, 1200] },
+    "map_preview_hell":       { "file": "20_MAP_SELECTION/map_preview_hell.png", "size": [896, 1200] },
+    "game_logo":              { "file": "21_LOGO/game_logo.png", "size": [1236, 506] },
+    "gameover_title":         { "file": "17_GAME_OVER/gameover_title.png", "size": [1175, 664] },
+    "gameover_results_plate": { "file": "17_GAME_OVER/gameover_results_plate.png", "size": [1182, 878] },
+    "btn_retry":              { "file": "17_GAME_OVER/btn_retry.png", "size": [640, 160] },
+    "btn_garage":             { "file": "17_GAME_OVER/btn_garage.png", "size": [640, 160] },
+    "btn_main_menu":          { "file": "17_GAME_OVER/btn_main_menu.png", "size": [640, 160] },
+    "victory_reward_panel":   { "file": "22_UI_EXTRA/victory_reward_panel.png", "size": [1088, 725] },
+    "boss_destroyed_title":   { "file": "22_UI_EXTRA/boss_destroyed_title.png", "size": [1346, 288] },
+    "vehicle_liberated_title":{ "file": "22_UI_EXTRA/vehicle_liberated_title.png", "size": [1313, 235] },
+    "boss_defeated_emblem":   { "file": "22_UI_EXTRA/boss_defeated_emblem.png", "size": [512, 512] },
+    "fx_vehicle_unlock":      { "file": "22_UI_EXTRA/fx_vehicle_unlock.png", "size": [768, 768], "blend": "lighter" },
+    "fx_vehicle_spawn_red":   { "file": "22_UI_EXTRA/fx_vehicle_spawn_red.png", "size": [768, 768], "blend": "lighter" },
+    "icon_locked_car":        { "file": "22_UI_EXTRA/icon_locked_car.png", "size": [512, 512] },
+    "icon_locked_map":        { "file": "22_UI_EXTRA/icon_locked_map.png", "size": [512, 512] },
+    "icon_lock":              { "file": "22_UI_EXTRA/icon_lock.png", "size": [512, 512] },
+    "icon_new_map_unlocked":  { "file": "22_UI_EXTRA/icon_new_map_unlocked.png", "size": [512, 512] },
+    "icon_new_car_unlocked":  { "file": "22_UI_EXTRA/icon_new_car_unlocked.png", "size": [512, 512] },
+    "mode_icon_arcade":       { "file": "22_UI_EXTRA/mode_icon_arcade.png", "size": [512, 512] },
+    "mode_icon_campaign":     { "file": "22_UI_EXTRA/mode_icon_campaign.png", "size": [512, 512] },
+    "mode_icon_boss":         { "file": "22_UI_EXTRA/mode_icon_boss.png", "size": [512, 512] },
+    "mode_icon_hell":         { "file": "22_UI_EXTRA/mode_icon_hell.png", "size": [512, 512] },
+    "loading_bg_smoke":       { "file": "22_UI_EXTRA/loading_bg_smoke_highway.png", "size": [768, 1376] },
+    "loading_bg_combat":      { "file": "22_UI_EXTRA/loading_bg_combat_cars.png", "size": [768, 1376] },
+    "loading_bg_horizon":     { "file": "22_UI_EXTRA/loading_bg_horizon_road.png", "size": [768, 1376] },
+    "icon_harlequin":         { "file": "22_UI_EXTRA/icon_harlequin.png", "size": [2048, 2048], "crop": { "x": 106, "y": 46, "w": 1837, "h": 1891 } },
+    "level_complete_title":   { "file": "22_UI_EXTRA/level_complete_title.png", "size": [2752, 1536], "crop": { "x": 54, "y": 17, "w": 2659, "h": 1473 } },
+    "revive_title":           { "file": "22_UI_EXTRA/revive_title.png", "size": [3168, 1344], "crop": { "x": 66, "y": 60, "w": 3036, "h": 1284 } }
+  }
+}

@@ -1,0 +1,1425 @@
+{
+  "meta": {
+    "version": "1.0.0",
+    "generatedAt": "2026-11-24",
+    "specRef": "MASTER_SPEC_v0.3",
+    "atlasRef": "ATLAS_MAP_1.0.0",
+    "combatRef": "COMBAT_AND_BOSSES_1.0"
+  },
+  "difficultyPresets": {
+    "easy": {
+      "label": "Лёгкий",
+      "enemyHpMult": 0.85,
+      "enemyDamageMult": 0.75,
+      "bossHpMult": 0.85,
+      "bossDamageMult": 0.75,
+      "spawnRateMult": 0.88,
+      "rewardAndScoreMult": 0.9
+    },
+    "normal": {
+      "label": "Обычный",
+      "enemyHpMult": 1.0,
+      "enemyDamageMult": 1.0,
+      "bossHpMult": 1.0,
+      "bossDamageMult": 1.0,
+      "spawnRateMult": 1.0,
+      "rewardAndScoreMult": 1.0
+    },
+    "hard": {
+      "label": "Хардкор",
+      "enemyHpMult": 1.25,
+      "enemyDamageMult": 1.3,
+      "bossHpMult": 1.25,
+      "bossDamageMult": 1.3,
+      "spawnRateMult": 1.15,
+      "rewardAndScoreMult": 1.25
+    }
+  },
+  "inRunDifficulty": {
+    "standardMapScheduleSec": [
+      0,
+      180,
+      360,
+      540
+    ],
+    "bossModeScheduleSec": [
+      0,
+      120,
+      240
+    ],
+    "bossModeSpawnTimeSec": 360,
+    "bossModeFightTier": 2,
+    "hellRoadNormalModeTiers": [
+      3,
+      4
+    ],
+    "hellRoadSwitchIntervalSec": [
+      45,
+      75
+    ],
+    "hellModeFixedTier": 4,
+    "tiers": {
+      "1": {
+        "name": "Лёгкая",
+        "enemyHpMult": 1.0,
+        "enemyDamageMult": 1.0,
+        "roadSpeedMult": 1.0,
+        "enemySpawnIntervalSec": [
+          2.4,
+          3.4
+        ],
+        "obstacleSpawnIntervalSec": [
+          2.8,
+          4.0
+        ],
+        "maxActiveEnemies": 3,
+        "maxSimultaneousShooters": 1,
+        "maxSimultaneousRammers": 1
+      },
+      "2": {
+        "name": "Средняя",
+        "enemyHpMult": 1.35,
+        "enemyDamageMult": 1.15,
+        "roadSpeedMult": 1.08,
+        "enemySpawnIntervalSec": [
+          1.9,
+          2.8
+        ],
+        "obstacleSpawnIntervalSec": [
+          2.3,
+          3.3
+        ],
+        "maxActiveEnemies": 4,
+        "maxSimultaneousShooters": 2,
+        "maxSimultaneousRammers": 1
+      },
+      "3": {
+        "name": "Тяжёлая",
+        "enemyHpMult": 1.75,
+        "enemyDamageMult": 1.3,
+        "roadSpeedMult": 1.16,
+        "enemySpawnIntervalSec": [
+          1.5,
+          2.3
+        ],
+        "obstacleSpawnIntervalSec": [
+          1.9,
+          2.8
+        ],
+        "maxActiveEnemies": 5,
+        "maxSimultaneousShooters": 2,
+        "maxSimultaneousRammers": 2
+      },
+      "4": {
+        "name": "Сложная",
+        "enemyHpMult": 2.25,
+        "enemyDamageMult": 1.48,
+        "roadSpeedMult": 1.24,
+        "enemySpawnIntervalSec": [
+          1.2,
+          1.9
+        ],
+        "obstacleSpawnIntervalSec": [
+          1.6,
+          2.4
+        ],
+        "maxActiveEnemies": 6,
+        "maxSimultaneousShooters": 3,
+        "maxSimultaneousRammers": 2
+      }
+    }
+  },
+  "physicsAndCombatRules": {
+    "roadWidthPx": 768,
+    "roadPlayableMinX": 96,
+    "roadPlayableMaxX": 672,
+    "laneCount": 4,
+    "laneWidthPx": 144,
+    "laneCentersX": [
+      168,
+      312,
+      456,
+      600
+    ],
+    "baseRoadScrollSpeedPxPerSec": 460,
+    "steering": {
+      "autoCenterCar": false,
+      "wheelVisualReturnSpeedRadPerSec": 9.0,
+      "lateralFrictionDamping": 8.5,
+      "maxTiltAngleDeg": 12
+    },
+    "damagePipeline": [
+      "shield",
+      "armor",
+      "hp"
+    ],
+    "armorFormula": {
+      "type": "hyperbolic",
+      "description": "reduction = min(maxReduction, armor / (armor + armorK))",
+      "armorK": 100,
+      "maxReduction": 0.65,
+      "bossUltIgnoresArmor": false
+    },
+    "collisions": {
+      "playerEnemySideContact": {
+        "baseDamage": 18,
+        "playerLateralImpulsePxPerSec": 190,
+        "enemyKnockbackImpulsePxPerSec": 340,
+        "enemyTakesContactDamage": false,
+        "contactCooldownSec": 0.35
+      },
+      "enemyVsEnemy": {
+        "baseDamage": 14,
+        "massFactor": 0.6,
+        "relativeSpeedFactor": 0.04,
+        "separationImpulsePxPerSec": 260,
+        "contactCooldownSec": 0.3
+      },
+      "enemyVsObstacle": {
+        "damageToEnemy": 28,
+        "destroysObstacle": false,
+        "slowsEnemy": false,
+        "contactCooldownSec": 0.4
+      },
+      "playerVsDestructibleObstacle": {
+        "baseRamDamageToObstacle": 60,
+        "zeroSelfDamageOnKill": true,
+        "maxSelfDamageIfSurvived": 26,
+        "formula": "selfDamage = maxSelfDamageIfSurvived * (remainingHp / maxHp)"
+      },
+      "playerVsDangerObstacle": {
+        "currentHpPercentDamage": 0.5,
+        "globalInvulnAfterHitSec": 0.0,
+        "sameObstacleInstanceCooldownSec": 0.25
+      }
+    }
+  },
+  "paceController": {
+    "waveDurationSec": [
+      22,
+      32
+    ],
+    "breatherDurationSec": [
+      5,
+      8
+    ],
+    "breatherSpawnRateMult": 0.45,
+    "bossFightEnemyDensityMult": 0.55,
+    "minGuaranteedOpenLanes": 1,
+    "recentDamageWindowSec": 4.0,
+    "recentDamageReliefThreshold": 0.25,
+    "overloadThreatThreshold": 100,
+    "threatWeights": {
+      "regularEnemy": 14,
+      "miniBoss": 42,
+      "mutantBoss": 55,
+      "destructibleObstacle": 5,
+      "dangerObstacle": 10,
+      "activeEnemyProjectile": 1.5,
+      "recentPlayerDamagePenalty": 20
+    }
+  },
+  "playerCars": {
+    "upgradeMaxLevel": 5,
+    "upgradableParams": [
+      "handling",
+      "stability",
+      "hp",
+      "armor",
+      "rifleDamage",
+      "rifleFireRate",
+      "specialDamage",
+      "specialAmmo",
+      "specialReload"
+    ],
+    "nonUpgradableParams": [
+      "speed",
+      "acceleration"
+    ],
+    "cars": {
+      "red_reaper": {
+        "name": "Красный Жнец",
+        "tier": 1,
+        "unlockedByDefault": true,
+        "purchasedByDefault": true,
+        "unlockBossId": null,
+        "priceHarlequins": 0,
+        "resetUpgradesCostHarlequins": 250,
+        "baseStats": {
+          "hp": 140,
+          "armor": 15,
+          "handling": 360,
+          "stability": 0.8,
+          "speed": 1.0,
+          "acceleration": 1.0
+        },
+        "rifle": {
+          "damage": 18,
+          "fireRate": 4.5,
+          "projectileSpeed": 980,
+          "projectileId": "player_rifle"
+        },
+        "specialWeapon": {
+          "id": "twin_heavy_autocannon",
+          "name": "Спаренная тяжёлая автопушка",
+          "damagePerShot": 34,
+          "shotsPerBurst": 4,
+          "burstIntervalSec": 0.08,
+          "ammoMax": 12,
+          "reloadCooldownSec": 1.4,
+          "projectileSpeed": 1150,
+          "projectileScale": 1.25,
+          "projectileId": "player_mg",
+          "hitVfx": "exp_small"
+        },
+        "upgrades": {
+          "handling": {
+            "perLevelAdd": 24,
+            "costs": [
+              120,
+              220,
+              360,
+              540,
+              780
+            ]
+          },
+          "stability": {
+            "perLevelAdd": 0.04,
+            "costs": [
+              110,
+              200,
+              330,
+              500,
+              720
+            ]
+          },
+          "hp": {
+            "perLevelAdd": 22,
+            "costs": [
+              140,
+              260,
+              420,
+              620,
+              900
+            ]
+          },
+          "armor": {
+            "perLevelAdd": 6,
+            "costs": [
+              150,
+              280,
+              450,
+              680,
+              960
+            ]
+          },
+          "rifleDamage": {
+            "perLevelAdd": 3.5,
+            "costs": [
+              180,
+              320,
+              520,
+              780,
+              1100
+            ]
+          },
+          "rifleFireRate": {
+            "perLevelAdd": 0.35,
+            "costs": [
+              170,
+              300,
+              490,
+              740,
+              1050
+            ]
+          },
+          "specialDamage": {
+            "perLevelAdd": 6,
+            "costs": [
+              190,
+              340,
+              550,
+              820,
+              1150
+            ]
+          },
+          "specialAmmo": {
+            "perLevelAdd": 2,
+            "costs": [
+              140,
+              260,
+              420,
+              640,
+              920
+            ]
+          },
+          "specialReload": {
+            "perLevelAdd": -0.1,
+            "costs": [
+              150,
+              270,
+              440,
+              660,
+              940
+            ]
+          }
+        }
+      },
+      "sand_dog": {
+        "name": "Песчаный Пёс",
+        "tier": 2,
+        "unlockedByDefault": false,
+        "purchasedByDefault": false,
+        "unlockBossId": "boss_sand_dog",
+        "priceHarlequins": 1500,
+        "resetUpgradesCostHarlequins": 400,
+        "baseStats": {
+          "hp": 135,
+          "armor": 12,
+          "handling": 420,
+          "stability": 0.78,
+          "speed": 1.06,
+          "acceleration": 1.08
+        },
+        "rifle": {
+          "damage": 19,
+          "fireRate": 5.0,
+          "projectileSpeed": 1000,
+          "projectileId": "player_rifle"
+        },
+        "specialWeapon": {
+          "id": "twin_fan_turret",
+          "name": "Спаренная шквальная турель",
+          "damagePerShot": 26,
+          "pelletsPerVolley": 6,
+          "spreadAngleDeg": 28,
+          "ammoMax": 14,
+          "reloadCooldownSec": 1.3,
+          "projectileSpeed": 1080,
+          "projectileScale": 1.0,
+          "projectileId": "player_rifle",
+          "hitVfx": "vfx_sparks"
+        },
+        "upgrades": {
+          "handling": {
+            "perLevelAdd": 26,
+            "costs": [
+              180,
+              320,
+              520,
+              780,
+              1100
+            ]
+          },
+          "stability": {
+            "perLevelAdd": 0.04,
+            "costs": [
+              170,
+              300,
+              490,
+              740,
+              1050
+            ]
+          },
+          "hp": {
+            "perLevelAdd": 22,
+            "costs": [
+              200,
+              360,
+              580,
+              860,
+              1220
+            ]
+          },
+          "armor": {
+            "perLevelAdd": 6,
+            "costs": [
+              210,
+              380,
+              610,
+              900,
+              1280
+            ]
+          },
+          "rifleDamage": {
+            "perLevelAdd": 4.0,
+            "costs": [
+              240,
+              440,
+              700,
+              1040,
+              1480
+            ]
+          },
+          "rifleFireRate": {
+            "perLevelAdd": 0.4,
+            "costs": [
+              230,
+              420,
+              670,
+              1000,
+              1420
+            ]
+          },
+          "specialDamage": {
+            "perLevelAdd": 5,
+            "costs": [
+              250,
+              460,
+              730,
+              1080,
+              1540
+            ]
+          },
+          "specialAmmo": {
+            "perLevelAdd": 2,
+            "costs": [
+              190,
+              350,
+              560,
+              840,
+              1200
+            ]
+          },
+          "specialReload": {
+            "perLevelAdd": -0.09,
+            "costs": [
+              200,
+              360,
+              580,
+              860,
+              1220
+            ]
+          }
+        }
+      },
+      "night_thorn": {
+        "name": "Ночной Шип",
+        "tier": 3,
+        "unlockedByDefault": false,
+        "purchasedByDefault": false,
+        "unlockBossId": "boss_night_thorn",
+        "priceHarlequins": 3500,
+        "resetUpgradesCostHarlequins": 650,
+        "baseStats": {
+          "hp": 155,
+          "armor": 20,
+          "handling": 410,
+          "stability": 0.85,
+          "speed": 1.04,
+          "acceleration": 1.05
+        },
+        "rifle": {
+          "damage": 23,
+          "fireRate": 4.8,
+          "projectileSpeed": 1060,
+          "projectileId": "player_rifle"
+        },
+        "specialWeapon": {
+          "id": "twin_tesla_rail",
+          "name": "Спаренная тесла-рельса (ЭМИ)",
+          "damagePerBeam": 78,
+          "beamsPerShot": 2,
+          "empStunShootSec": 1.6,
+          "empSlowMult": 0.65,
+          "empSlowDurationSec": 2.0,
+          "ammoMax": 10,
+          "reloadCooldownSec": 1.65,
+          "projectileSpeed": 1450,
+          "projectileScale": 1.1,
+          "projectileId": "player_laser",
+          "hitVfx": "vfx_emp"
+        },
+        "upgrades": {
+          "handling": {
+            "perLevelAdd": 24,
+            "costs": [
+              260,
+              460,
+              740,
+              1100,
+              1560
+            ]
+          },
+          "stability": {
+            "perLevelAdd": 0.03,
+            "costs": [
+              240,
+              440,
+              700,
+              1040,
+              1480
+            ]
+          },
+          "hp": {
+            "perLevelAdd": 26,
+            "costs": [
+              280,
+              500,
+              800,
+              1200,
+              1700
+            ]
+          },
+          "armor": {
+            "perLevelAdd": 7,
+            "costs": [
+              300,
+              540,
+              860,
+              1280,
+              1820
+            ]
+          },
+          "rifleDamage": {
+            "perLevelAdd": 4.5,
+            "costs": [
+              340,
+              620,
+              980,
+              1460,
+              2060
+            ]
+          },
+          "rifleFireRate": {
+            "perLevelAdd": 0.38,
+            "costs": [
+              320,
+              580,
+              920,
+              1380,
+              1960
+            ]
+          },
+          "specialDamage": {
+            "perLevelAdd": 14,
+            "costs": [
+              360,
+              640,
+              1020,
+              1520,
+              2150
+            ]
+          },
+          "specialAmmo": {
+            "perLevelAdd": 2,
+            "costs": [
+              270,
+              490,
+              780,
+              1160,
+              1650
+            ]
+          },
+          "specialReload": {
+            "perLevelAdd": -0.11,
+            "costs": [
+              280,
+              510,
+              810,
+              1210,
+              1720
+            ]
+          }
+        }
+      },
+      "armored_truck": {
+        "name": "Броневик",
+        "tier": 4,
+        "unlockedByDefault": false,
+        "purchasedByDefault": false,
+        "unlockBossId": "boss_armored_truck",
+        "priceHarlequins": 7000,
+        "resetUpgradesCostHarlequins": 1000,
+        "baseStats": {
+          "hp": 220,
+          "armor": 38,
+          "handling": 310,
+          "stability": 0.94,
+          "speed": 0.94,
+          "acceleration": 0.92
+        },
+        "rifle": {
+          "damage": 28,
+          "fireRate": 4.4,
+          "projectileSpeed": 980,
+          "projectileId": "player_rifle"
+        },
+        "specialWeapon": {
+          "id": "triple_assault_battery",
+          "name": "Трёхствольная штурмовая батарея",
+          "centerShellDamage": 135,
+          "centerSplashRadiusPx": 135,
+          "flankRocketDamage": 65,
+          "flankRocketCount": 2,
+          "flankSplashRadiusPx": 85,
+          "ammoMax": 9,
+          "reloadCooldownSec": 2.0,
+          "centerProjectileId": "enemy_heavy_bomb",
+          "centerProjectileRotateDeg": 180,
+          "flankProjectileId": "player_rocket",
+          "projectileSpeed": 860,
+          "hitVfxCenter": "exp_shockwave",
+          "hitVfxFlank": "exp_medium"
+        },
+        "upgrades": {
+          "handling": {
+            "perLevelAdd": 22,
+            "costs": [
+              360,
+              650,
+              1040,
+              1560,
+              2200
+            ]
+          },
+          "stability": {
+            "perLevelAdd": 0.015,
+            "costs": [
+              340,
+              610,
+              980,
+              1460,
+              2060
+            ]
+          },
+          "hp": {
+            "perLevelAdd": 36,
+            "costs": [
+              400,
+              720,
+              1150,
+              1720,
+              2450
+            ]
+          },
+          "armor": {
+            "perLevelAdd": 9,
+            "costs": [
+              420,
+              760,
+              1210,
+              1810,
+              2560
+            ]
+          },
+          "rifleDamage": {
+            "perLevelAdd": 5.5,
+            "costs": [
+              460,
+              830,
+              1320,
+              1980,
+              2800
+            ]
+          },
+          "rifleFireRate": {
+            "perLevelAdd": 0.35,
+            "costs": [
+              440,
+              790,
+              1260,
+              1890,
+              2680
+            ]
+          },
+          "specialDamage": {
+            "perLevelAdd": 22,
+            "costs": [
+              480,
+              860,
+              1380,
+              2060,
+              2920
+            ]
+          },
+          "specialAmmo": {
+            "perLevelAdd": 2,
+            "costs": [
+              380,
+              680,
+              1090,
+              1630,
+              2300
+            ]
+          },
+          "specialReload": {
+            "perLevelAdd": -0.14,
+            "costs": [
+              400,
+              720,
+              1150,
+              1720,
+              2450
+            ]
+          }
+        }
+      },
+      "neon_phantom": {
+        "name": "Неон-Фантом",
+        "tier": 5,
+        "unlockedByDefault": false,
+        "purchasedByDefault": false,
+        "unlockBossId": "boss_neon_phantom",
+        "priceHarlequins": 12000,
+        "resetUpgradesCostHarlequins": 1500,
+        "baseStats": {
+          "hp": 175,
+          "armor": 26,
+          "handling": 460,
+          "stability": 0.9,
+          "speed": 1.08,
+          "acceleration": 1.12
+        },
+        "rifle": {
+          "damage": 29,
+          "fireRate": 5.4,
+          "projectileSpeed": 1120,
+          "projectileId": "player_rifle"
+        },
+        "specialWeapon": {
+          "id": "hyper_plasma_cannon",
+          "name": "Гипер-плазменная пушка",
+          "damage": 210,
+          "piercesAllTargetsInLane": true,
+          "ammoMax": 10,
+          "reloadCooldownSec": 1.8,
+          "projectileSpeed": 1550,
+          "projectileScale": 1.45,
+          "projectileId": "player_laser",
+          "hitVfx": "exp_ring"
+        },
+        "upgrades": {
+          "handling": {
+            "perLevelAdd": 26,
+            "costs": [
+              500,
+              900,
+              1440,
+              2160,
+              3050
+            ]
+          },
+          "stability": {
+            "perLevelAdd": 0.02,
+            "costs": [
+              480,
+              860,
+              1380,
+              2060,
+              2900
+            ]
+          },
+          "hp": {
+            "perLevelAdd": 30,
+            "costs": [
+              540,
+              970,
+              1550,
+              2320,
+              3280
+            ]
+          },
+          "armor": {
+            "perLevelAdd": 8,
+            "costs": [
+              560,
+              1010,
+              1610,
+              2410,
+              3400
+            ]
+          },
+          "rifleDamage": {
+            "perLevelAdd": 6.0,
+            "costs": [
+              620,
+              1120,
+              1790,
+              2680,
+              3780
+            ]
+          },
+          "rifleFireRate": {
+            "perLevelAdd": 0.42,
+            "costs": [
+              600,
+              1080,
+              1730,
+              2590,
+              3650
+            ]
+          },
+          "specialDamage": {
+            "perLevelAdd": 34,
+            "costs": [
+              660,
+              1190,
+              1900,
+              2850,
+              4020
+            ]
+          },
+          "specialAmmo": {
+            "perLevelAdd": 2,
+            "costs": [
+              520,
+              940,
+              1500,
+              2250,
+              3180
+            ]
+          },
+          "specialReload": {
+            "perLevelAdd": -0.12,
+            "costs": [
+              540,
+              970,
+              1550,
+              2320,
+              3280
+            ]
+          }
+        }
+      }
+    }
+  },
+  "tempWeapons": {
+    "machinegun": {
+      "crateId": "machinegun",
+      "ammo": 100,
+      "damage": 19,
+      "fireRate": 11.5,
+      "projectileSpeed": 1150,
+      "projectileId": "player_mg",
+      "spawnWeight": 30,
+      "repeatCooldownSec": 25
+    },
+    "rocket_launcher": {
+      "crateId": "rocket_launcher",
+      "ammo": 10,
+      "damage": 145,
+      "splashRadiusPx": 130,
+      "fireRate": 1.6,
+      "projectileSpeed": 820,
+      "projectileId": "player_rocket",
+      "hitVfx": "exp_medium",
+      "spawnWeight": 22,
+      "repeatCooldownSec": 30
+    },
+    "laser": {
+      "crateId": "laser",
+      "ammo": 50,
+      "damage": 38,
+      "pierceCount": 2,
+      "fireRate": 7.0,
+      "projectileSpeed": 1500,
+      "projectileId": "player_laser",
+      "hitVfx": "vfx_emp",
+      "spawnWeight": 24,
+      "repeatCooldownSec": 28
+    },
+    "flamethrower": {
+      "crateId": "flamethrower",
+      "ammo": 50,
+      "damage": 30,
+      "burnDps": 18,
+      "burnDurationSec": 2.5,
+      "spreadAngleDeg": 14,
+      "fireRate": 8.0,
+      "projectileSpeed": 720,
+      "projectileId": "player_fire",
+      "hitVfx": "vfx_fire_burst",
+      "spawnWeight": 24,
+      "repeatCooldownSec": 28
+    }
+  },
+  "enemies": {
+    "damagedHpThreshold": 0.35,
+    "types": {
+      "buggy_green": {
+        "name": "Багги-перехватчик",
+        "hp": 115,
+        "mass": 0.8,
+        "forwardSpeedPxPerSec": 230,
+        "lateralSpeedPxPerSec": 220,
+        "ramAggression": 0.55,
+        "ramLockDistanceYPx": 220,
+        "damage": 10,
+        "burstCount": 3,
+        "burstShotIntervalSec": 0.14,
+        "burstCooldownSec": 2.1,
+        "projectileId": "player_mg",
+        "projectileRotateDeg": 180,
+        "projectileSpeed": 560,
+        "rewardHarlequins": 18,
+        "scorePoints": 100
+      },
+      "pickup_cyan": {
+        "name": "Пикап-штурмовик",
+        "hp": 165,
+        "mass": 1.1,
+        "forwardSpeedPxPerSec": 185,
+        "lateralSpeedPxPerSec": 175,
+        "ramAggression": 0.35,
+        "ramLockDistanceYPx": 240,
+        "damage": 14,
+        "burstCount": 2,
+        "burstShotIntervalSec": 0.18,
+        "burstCooldownSec": 2.3,
+        "projectileId": "enemy_plasma",
+        "projectileSpeed": 590,
+        "rewardHarlequins": 24,
+        "scorePoints": 135
+      },
+      "muscle_purple": {
+        "name": "Маслкар-охотник",
+        "hp": 210,
+        "mass": 1.25,
+        "forwardSpeedPxPerSec": 205,
+        "lateralSpeedPxPerSec": 200,
+        "ramAggression": 0.65,
+        "ramLockDistanceYPx": 230,
+        "damage": 16,
+        "burstCount": 3,
+        "burstShotIntervalSec": 0.16,
+        "burstCooldownSec": 2.2,
+        "projectileId": "enemy_plasma",
+        "projectileSpeed": 620,
+        "rewardHarlequins": 30,
+        "scorePoints": 170
+      },
+      "van_striped": {
+        "name": "Фургон-таран",
+        "hp": 270,
+        "mass": 1.65,
+        "forwardSpeedPxPerSec": 160,
+        "lateralSpeedPxPerSec": 145,
+        "ramAggression": 0.75,
+        "ramLockDistanceYPx": 250,
+        "damage": 20,
+        "burstCount": 1,
+        "burstShotIntervalSec": 0.0,
+        "burstCooldownSec": 2.6,
+        "projectileId": "enemy_rocket",
+        "projectileSpeed": 540,
+        "rewardHarlequins": 38,
+        "scorePoints": 210
+      },
+      "flame_red": {
+        "name": "Огненный рейдер",
+        "hp": 310,
+        "mass": 1.35,
+        "forwardSpeedPxPerSec": 195,
+        "lateralSpeedPxPerSec": 185,
+        "ramAggression": 0.5,
+        "ramLockDistanceYPx": 235,
+        "damage": 18,
+        "burstCount": 3,
+        "burstShotIntervalSec": 0.12,
+        "burstCooldownSec": 2.4,
+        "projectileId": "player_fire",
+        "projectileRotateDeg": 180,
+        "projectileSpeed": 520,
+        "rewardHarlequins": 45,
+        "scorePoints": 260
+      }
+    }
+  },
+  "miniBosses": {
+    "phase2HpThreshold": 0.45,
+    "hoverYRatio": 0.2,
+    "types": {
+      "war_rig": {
+        "name": "Боевая фура",
+        "hp": 2200,
+        "lateralSpeedPxPerSec": 130,
+        "phase2SpeedMult": 1.25,
+        "attacks": {
+          "twinRockets": {
+            "damage": 24,
+            "count": 2,
+            "cooldownSec": 2.8,
+            "projectileId": "enemy_rocket",
+            "speed": 580
+          },
+          "suppressingFan": {
+            "damage": 14,
+            "pellets": 5,
+            "spreadDeg": 36,
+            "cooldownSec": 3.4,
+            "projectileId": "player_mg",
+            "speed": 560
+          }
+        },
+        "rewardHarlequins": 220,
+        "scorePoints": 1200
+      },
+      "saw_dozer": {
+        "name": "Бульдозер-пила",
+        "hp": 2600,
+        "lateralSpeedPxPerSec": 150,
+        "phase2SpeedMult": 1.3,
+        "dash": {
+          "telegraphSec": 0.9,
+          "dashSpeedPxPerSec": 680,
+          "dashTargetYRatio": 0.68,
+          "returnSpeedPxPerSec": 340,
+          "ramDamage": 38,
+          "cooldownSec": 6.5
+        },
+        "attacks": {
+          "shrapnelBurst": {
+            "damage": 16,
+            "pellets": 4,
+            "spreadDeg": 26,
+            "cooldownSec": 2.9,
+            "projectileId": "player_fire",
+            "speed": 520
+          }
+        },
+        "rewardHarlequins": 260,
+        "scorePoints": 1450
+      },
+      "rail_juggernaut": {
+        "name": "Рельсотрон-джаггер",
+        "hp": 2400,
+        "lateralSpeedPxPerSec": 140,
+        "phase2SpeedMult": 1.25,
+        "attacks": {
+          "plasmaSalvo": {
+            "damage": 20,
+            "count": 3,
+            "intervalSec": 0.2,
+            "cooldownSec": 2.6,
+            "projectileId": "enemy_plasma",
+            "speed": 720
+          },
+          "heavyBombDrop": {
+            "damage": 34,
+            "count": 2,
+            "cooldownSec": 4.2,
+            "projectileId": "enemy_heavy_bomb",
+            "speed": 470
+          }
+        },
+        "rewardHarlequins": 280,
+        "scorePoints": 1600
+      }
+    }
+  },
+  "mutantBosses": {
+    "phaseThresholds": {
+      "phase2": 0.65,
+      "phase3": 0.3
+    },
+    "hoverYRatio": 0.18,
+    "hellBossRush": {
+      "order": [
+        "boss_sand_dog",
+        "boss_night_thorn",
+        "boss_armored_truck",
+        "boss_neon_phantom"
+      ],
+      "hpMultPerBoss": 0.72,
+      "breatherBetweenBossesSec": 10.0
+    },
+    "deathSequence": {
+      "stopRoadScroll": true,
+      "explosionCount": 9,
+      "explosionIntervalSec": 0.24,
+      "megaExplosionAtEnd": true,
+      "screenShakePx": 14,
+      "wreckResumeScrollDelaySec": 0.6,
+      "wreckDarkenFilter": "brightness(0.45) saturate(0.3)"
+    },
+    "types": {
+      "boss_sand_dog": {
+        "name": "Механический паук «Песчаный Пёс»",
+        "mapId": "desert",
+        "hp": 6500,
+        "lateralSpeedPxPerSec": 165,
+        "attacks": {
+          "acidFan": {
+            "damage": 16,
+            "pellets": 5,
+            "spreadDeg": 42,
+            "cooldownSec": 2.6,
+            "projectileId": "enemy_plasma",
+            "speed": 580
+          },
+          "rocketPair": {
+            "damage": 24,
+            "count": 2,
+            "cooldownSec": 3.4,
+            "projectileId": "enemy_rocket",
+            "speed": 560
+          }
+        },
+        "ultimate": {
+          "beamId": "boss_sand_dog_green",
+          "pattern": "single_lane_lock",
+          "lanesCovered": 1,
+          "cooldownSec": 13.0,
+          "telegraphSec": 1.6,
+          "activeSec": 2.2,
+          "tickIntervalSec": 0.25,
+          "damagePerTick": 18
+        },
+        "rewardHarlequins": 900,
+        "scorePoints": 4500
+      },
+      "boss_night_thorn": {
+        "name": "Мутировавший «Ночной Шип»",
+        "mapId": "industrial",
+        "hp": 9500,
+        "lateralSpeedPxPerSec": 195,
+        "attacks": {
+          "aimedPlasmaBurst": {
+            "damage": 19,
+            "count": 4,
+            "intervalSec": 0.15,
+            "cooldownSec": 2.4,
+            "projectileId": "enemy_plasma",
+            "speed": 680
+          },
+          "crossRockets": {
+            "damage": 26,
+            "count": 3,
+            "cooldownSec": 3.5,
+            "projectileId": "enemy_rocket",
+            "speed": 600
+          }
+        },
+        "ultimate": {
+          "beamId": "boss_night_thorn_red",
+          "pattern": "double_sequential_lanes",
+          "lanesCovered": 1,
+          "sequentialShots": 2,
+          "delayBetweenShotsSec": 0.7,
+          "cooldownSec": 12.5,
+          "telegraphSec": 1.35,
+          "activeSec": 1.5,
+          "tickIntervalSec": 0.25,
+          "damagePerTick": 22
+        },
+        "rewardHarlequins": 1600,
+        "scorePoints": 7000
+      },
+      "boss_armored_truck": {
+        "name": "Огненный мутант «Броневик»",
+        "mapId": "ruined_city",
+        "hp": 13500,
+        "lateralSpeedPxPerSec": 145,
+        "attacks": {
+          "napalmBarrage": {
+            "damage": 22,
+            "count": 4,
+            "spreadDeg": 32,
+            "cooldownSec": 2.7,
+            "projectileId": "player_fire",
+            "speed": 540
+          },
+          "heavyBombs": {
+            "damage": 36,
+            "count": 2,
+            "cooldownSec": 3.8,
+            "projectileId": "enemy_heavy_bomb",
+            "speed": 490
+          }
+        },
+        "ultimate": {
+          "beamId": "boss_armored_truck_fire",
+          "pattern": "wide_two_lanes",
+          "lanesCovered": 2,
+          "cooldownSec": 14.0,
+          "telegraphSec": 1.9,
+          "activeSec": 2.5,
+          "tickIntervalSec": 0.25,
+          "damagePerTick": 26
+        },
+        "rewardHarlequins": 2600,
+        "scorePoints": 10000
+      },
+      "boss_neon_phantom": {
+        "name": "Колосс «Неон-Фантом»",
+        "mapId": "winter",
+        "hp": 18000,
+        "lateralSpeedPxPerSec": 220,
+        "attacks": {
+          "hyperPlasmaVolley": {
+            "damage": 24,
+            "count": 5,
+            "spreadDeg": 44,
+            "cooldownSec": 2.3,
+            "projectileId": "player_laser",
+            "speed": 740
+          },
+          "heavyOrbitalBombs": {
+            "damage": 38,
+            "count": 3,
+            "cooldownSec": 3.6,
+            "projectileId": "enemy_heavy_bomb",
+            "speed": 520
+          }
+        },
+        "ultimate": {
+          "beamId": "boss_neon_phantom_cyan",
+          "pattern": "sweeping_beam",
+          "lanesCovered": 1,
+          "sweepLanes": 1.5,
+          "cooldownSec": 12.0,
+          "telegraphSec": 1.5,
+          "activeSec": 2.4,
+          "tickIntervalSec": 0.22,
+          "damagePerTick": 28
+        },
+        "rewardHarlequins": 4000,
+        "scorePoints": 14000
+      }
+    }
+  },
+  "obstacles": {
+    "destructible": {
+      "concrete_block": {
+        "hp": 90,
+        "ramSelfDamageMax": 26,
+        "scorePoints": 40
+      },
+      "steel_beams": {
+        "hp": 110,
+        "ramSelfDamageMax": 28,
+        "scorePoints": 50
+      },
+      "oil_puddle": {
+        "hp": 45,
+        "ramSelfDamageMax": 10,
+        "scorePoints": 25,
+        "slipDurationSec": 1.2,
+        "slipHandlingMult": 0.45
+      },
+      "spike_strip": {
+        "hp": 60,
+        "ramSelfDamageMax": 22,
+        "scorePoints": 35
+      },
+      "fuel_barrels": {
+        "hp": 50,
+        "ramSelfDamageMax": 24,
+        "scorePoints": 45,
+        "explosionRadiusPx": 135,
+        "explosionDamageToEnemies": 110
+      }
+    },
+    "danger": {
+      "crater": {
+        "currentHpPercentDamage": 0.5,
+        "hitboxScale": 0.78
+      },
+      "traffic_cones": {
+        "currentHpPercentDamage": 0.5,
+        "hitboxScale": 0.72
+      },
+      "steel_barrier": {
+        "currentHpPercentDamage": 0.5,
+        "hitboxScale": 0.85
+      },
+      "landmines": {
+        "currentHpPercentDamage": 0.5,
+        "hitboxScale": 0.75
+      },
+      "cargo_container": {
+        "currentHpPercentDamage": 0.5,
+        "hitboxScale": 0.9
+      }
+    }
+  },
+  "pickupsAndCrates": {
+    "globalCrateMinIntervalSec": 3.0,
+    "repair": {
+      "healAmount": 45,
+      "spawnOnlyBelowHpRatio": 0.7,
+      "baseWeight": 12,
+      "lowHpMaxWeight": 55
+    },
+    "shield": {
+      "maxShield": 90,
+      "autoActivate": true,
+      "spawnWhenFull": false,
+      "baseWeight": 10,
+      "emptyShieldMaxWeight": 36
+    },
+    "special_ammo": {
+      "refillRatio": 0.4,
+      "minFixedRefill": 3,
+      "spawnWhenFull": false,
+      "baseWeight": 12,
+      "emptyAmmoMaxWeight": 40
+    },
+    "last_hope": {
+      "invulnDurationSec": 6.0,
+      "spawnCooldownSec": 50.0,
+      "maxPlayerHpRatioToSpawn": 0.4,
+      "minThreatScoreToSpawn": 55,
+      "spawnWeight": 8
+    },
+    "weapon_crates": {
+      "baseSpawnWeight": 26,
+      "alreadyHasTempWeaponWeightMult": 0.55
+    },
+    "gold_coin": {
+      "value": 1,
+      "singleSpriteOnly": true,
+      "ignoresCrateTimer": true,
+      "disabledInModes": [
+        "arcade"
+      ],
+      "spawnIntervalSecByMode": {
+        "campaign": [
+          11,
+          17
+        ],
+        "boss": [
+          13,
+          19
+        ],
+        "hell": [
+          8,
+          13
+        ]
+      }
+    }
+  },
+  "economyAndRewards": {
+    "assistKillRewardRatio": 0.5,
+    "goldToHarlequinsRate": 50,
+    "revive": {
+      "allowedModes": [
+        "boss"
+      ],
+      "countdownSec": 9,
+      "baseCostGold": 10,
+      "costMultiplierPerUse": 2.0,
+      "postReviveInvulnSec": 3.0,
+      "postReviveCalmRoadSec": 3.0,
+      "restoreHpAndArmor": true,
+      "restoreShieldAndAmmo": false
+    },
+    "ratingPoints": {
+      "perSecondSurvived": 10,
+      "regularEnemyBase": "fromEnemyConfig",
+      "miniBossBase": "fromMiniBossConfig",
+      "destructibleObstacleBase": "fromObstacleConfig"
+    },
+    "hiddenRatingGoldBonus": {
+      "enabledModes": [
+        "boss",
+        "hell"
+      ],
+      "goldPerRatingPoint": 0.0022,
+      "minBonusGold": 3,
+      "bossModeMaxBonusGold": 35,
+      "hellModeMaxBonusGold": 60
+    }
+  }
+}

@@ -1,0 +1,466 @@
+{
+  "01_PLAYER_CARS": [
+    {
+      "file": "player_cars_spritesheet.png",
+      "width": 1280,
+      "height": 1024,
+      "mode": "RGBA"
+    }
+  ],
+  "02_PLAYER_WEAPONS": [
+    {
+      "file": "player_weapons_spritesheet.png",
+      "width": 1280,
+      "height": 1024,
+      "mode": "RGBA"
+    }
+  ],
+  "03_ENEMIES": [
+    {
+      "file": "enemy_cars_spritesheet.png",
+      "width": 1280,
+      "height": 1024,
+      "mode": "RGBA"
+    }
+  ],
+  "04_BOSSES": [
+    {
+      "file": "bosses_spritesheet.png",
+      "width": 1152,
+      "height": 1536,
+      "mode": "RGBA"
+    }
+  ],
+  "05_MUTANT_BOSSES": [
+    {
+      "file": "mutant_bosses_spritesheet.png",
+      "width": 1536,
+      "height": 1152,
+      "mode": "RGBA"
+    }
+  ],
+  "06_ROADS": [
+    {
+      "file": "main_road_tile.png",
+      "width": 768,
+      "height": 1280,
+      "mode": "RGB"
+    },
+    {
+      "file": "road_desert_tile.png",
+      "width": 768,
+      "height": 1280,
+      "mode": "RGB"
+    },
+    {
+      "file": "road_industrial_tile.png",
+      "width": 768,
+      "height": 1280,
+      "mode": "RGB"
+    },
+    {
+      "file": "road_ruined_city_tile.png",
+      "width": 768,
+      "height": 1280,
+      "mode": "RGB"
+    },
+    {
+      "file": "road_winter_tile.png",
+      "width": 768,
+      "height": 1280,
+      "mode": "RGB"
+    },
+    {
+      "file": "road_hell_tile.png",
+      "width": 768,
+      "height": 1280,
+      "mode": "RGB"
+    }
+  ],
+  "07_DESTRUCTIBLE_OBSTACLES": [
+    {
+      "file": "obstacles_group1_spritesheet.png",
+      "width": 1280,
+      "height": 768,
+      "mode": "RGBA"
+    },
+    {
+      "file": "obstacles_desert_spritesheet.png",
+      "width": 1280,
+      "height": 768,
+      "mode": "RGBA"
+    },
+    {
+      "file": "obstacles_industrial_spritesheet.png",
+      "width": 1280,
+      "height": 768,
+      "mode": "RGBA"
+    },
+    {
+      "file": "obstacles_ruined_city_spritesheet.png",
+      "width": 1280,
+      "height": 768,
+      "mode": "RGBA"
+    },
+    {
+      "file": "obstacles_winter_spritesheet.png",
+      "width": 1280,
+      "height": 768,
+      "mode": "RGBA"
+    },
+    {
+      "file": "obstacles_hell_spritesheet.png",
+      "width": 1280,
+      "height": 768,
+      "mode": "RGBA"
+    }
+  ],
+  "08_DANGER_OBSTACLES": [
+    {
+      "file": "obstacles_group2_main_spritesheet.png",
+      "width": 1280,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "obstacles_group2_desert_spritesheet.png",
+      "width": 1280,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "obstacles_group2_industrial_spritesheet.png",
+      "width": 1280,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "obstacles_group2_ruined_city_spritesheet.png",
+      "width": 1280,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "obstacles_group2_winter_spritesheet.png",
+      "width": 1280,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "obstacles_group2_hell_spritesheet.png",
+      "width": 1280,
+      "height": 512,
+      "mode": "RGBA"
+    }
+  ],
+  "09_WEAPON_CRATES": [
+    {
+      "file": "weapon_crates_spritesheet.png",
+      "width": 1024,
+      "height": 512,
+      "mode": "RGBA"
+    }
+  ],
+  "10_PICKUPS": [
+    {
+      "file": "pickups_spritesheet.png",
+      "width": 1280,
+      "height": 512,
+      "mode": "RGBA"
+    }
+  ],
+  "11_PROJECTILES": [
+    {
+      "file": "projectiles_spritesheet.png",
+      "width": 2048,
+      "height": 512,
+      "mode": "RGBA"
+    }
+  ],
+  "12_BOSS_ULTIMATES": [
+    {
+      "file": "mutant_boss_ults_spritesheet.png",
+      "width": 1024,
+      "height": 1536,
+      "mode": "RGBA"
+    },
+    {
+      "file": "mutant_ult_hits_spritesheet.png",
+      "width": 1024,
+      "height": 512,
+      "mode": "RGBA"
+    }
+  ],
+  "13_EXPLOSIONS": [
+    {
+      "file": "vfx_explosions_spritesheet.png",
+      "width": 1280,
+      "height": 1024,
+      "mode": "RGBA"
+    }
+  ],
+  "14_DEFENSE_EFFECTS": [
+    {
+      "file": "defense_effects_spritesheet.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA"
+    }
+  ],
+  "15_HUD": [
+    {
+      "file": "hud_elements_spritesheet.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA"
+    }
+  ],
+  "16_CONTROLS": [
+    {
+      "file": "touch_controls_spritesheet.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA"
+    }
+  ],
+  "17_GAME_OVER": [
+    {
+      "file": "gameover_title.png",
+      "width": 1175,
+      "height": 664,
+      "mode": "RGBA"
+    },
+    {
+      "file": "gameover_results_plate.png",
+      "width": 1182,
+      "height": 878,
+      "mode": "RGBA"
+    },
+    {
+      "file": "btn_retry.png",
+      "width": 640,
+      "height": 160,
+      "mode": "RGBA"
+    },
+    {
+      "file": "btn_garage.png",
+      "width": 640,
+      "height": 160,
+      "mode": "RGBA"
+    },
+    {
+      "file": "btn_main_menu.png",
+      "width": 640,
+      "height": 160,
+      "mode": "RGBA"
+    },
+    {
+      "file": "gameover_damage_decals.png",
+      "width": 1024,
+      "height": 512,
+      "mode": "RGBA"
+    }
+  ],
+  "18_MAIN_MENU": [
+    {
+      "file": "main_menu_bg.png",
+      "width": 768,
+      "height": 1376,
+      "mode": "RGB"
+    },
+    {
+      "file": "menu_buttons_spritesheet.png",
+      "width": 1408,
+      "height": 1728,
+      "mode": "RGBA"
+    }
+  ],
+  "19_GARAGE": [
+    {
+      "file": "garage_bg.png",
+      "width": 768,
+      "height": 1376,
+      "mode": "RGB"
+    },
+    {
+      "file": "garage_cars_spritesheet.png",
+      "width": 1920,
+      "height": 768,
+      "mode": "RGBA"
+    },
+    {
+      "file": "garage_arrows_spritesheet.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "garage_ui_spritesheet.png",
+      "width": 1536,
+      "height": 1536,
+      "mode": "RGBA"
+    }
+  ],
+  "20_MAP_SELECTION": [
+    {
+      "file": "map_preview_desert.png",
+      "width": 896,
+      "height": 1200,
+      "mode": "RGB"
+    },
+    {
+      "file": "map_preview_industrial.png",
+      "width": 896,
+      "height": 1200,
+      "mode": "RGB"
+    },
+    {
+      "file": "map_preview_ruined_city.png",
+      "width": 896,
+      "height": 1200,
+      "mode": "RGB"
+    },
+    {
+      "file": "map_preview_winter.png",
+      "width": 896,
+      "height": 1200,
+      "mode": "RGB"
+    },
+    {
+      "file": "map_preview_hell.png",
+      "width": 896,
+      "height": 1200,
+      "mode": "RGB"
+    }
+  ],
+  "21_LOGO": [
+    {
+      "file": "game_logo.png",
+      "width": 1236,
+      "height": 506,
+      "mode": "RGBA"
+    },
+    {
+      "file": "game_logo_anim_spritesheet.png",
+      "width": 1280,
+      "height": 2560,
+      "mode": "RGBA"
+    }
+  ],
+  "22_UI_EXTRA": [
+    {
+      "file": "icon_locked_car.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "icon_locked_map.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "icon_lock.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "stat_icons_spritesheet.png",
+      "width": 1024,
+      "height": 768,
+      "mode": "RGBA"
+    },
+    {
+      "file": "mode_icon_arcade.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "mode_icon_campaign.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "mode_icon_boss.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "mode_icon_hell.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "boss_destroyed_title.png",
+      "width": 1346,
+      "height": 288,
+      "mode": "RGBA"
+    },
+    {
+      "file": "vehicle_liberated_title.png",
+      "width": 1313,
+      "height": 235,
+      "mode": "RGBA"
+    },
+    {
+      "file": "boss_defeated_emblem.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "fx_vehicle_unlock.png",
+      "width": 768,
+      "height": 768,
+      "mode": "RGBA"
+    },
+    {
+      "file": "icon_new_map_unlocked.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "icon_new_car_unlocked.png",
+      "width": 512,
+      "height": 512,
+      "mode": "RGBA"
+    },
+    {
+      "file": "fx_vehicle_spawn_red.png",
+      "width": 768,
+      "height": 768,
+      "mode": "RGBA"
+    },
+    {
+      "file": "victory_reward_panel.png",
+      "width": 1088,
+      "height": 725,
+      "mode": "RGBA"
+    },
+    {
+      "file": "loading_bg_smoke_highway.png",
+      "width": 768,
+      "height": 1376,
+      "mode": "RGB"
+    },
+    {
+      "file": "loading_bg_combat_cars.png",
+      "width": 768,
+      "height": 1376,
+      "mode": "RGB"
+    },
+    {
+      "file": "loading_bg_horizon_road.png",
+      "width": 768,
+      "height": 1376,
+      "mode": "RGB"
+    }
+  ]
+}
